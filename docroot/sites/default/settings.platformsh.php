@@ -3,7 +3,6 @@
  * @file
  * Platform.sh settings.
  */
-
 // Configure the database.
 if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
   $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), TRUE);
@@ -22,11 +21,9 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
           'host' => $instance['host'],
           'port' => $instance['port'],
         ];
-
         if (!empty($instance['query']['compression'])) {
           $database['pdo'][PDO::MYSQL_ATTR_COMPRESS] = TRUE;
         }
-
         if (!empty($instance['query']['is_master'])) {
           $databases[$drupal_key]['default'] = $database;
         }
@@ -37,9 +34,7 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
     }
   }
 }
-
 if (isset($_ENV['PLATFORM_APP_DIR'])) {
-
   // Configure private and temporary file paths.
   if (!isset($settings['file_private_path'])) {
     $settings['file_private_path'] = $_ENV['PLATFORM_APP_DIR'] . '/private';
@@ -47,7 +42,6 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
   if (!isset($config['system.file']['path']['temporary'])) {
     $config['system.file']['path']['temporary'] = $_ENV['PLATFORM_APP_DIR'] . '/tmp';
   }
-
   // Configure the default PhpStorage and Twig template cache directories.
   if (!isset($settings['php_storage']['default'])) {
     $settings['php_storage']['default']['directory'] = $settings['file_private_path'];
@@ -55,9 +49,7 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
   if (!isset($settings['php_storage']['twig'])) {
     $settings['php_storage']['twig']['directory'] = $settings['file_private_path'];
   }
-
 }
-
 // Set trusted hosts based on Platform.sh routes.
 if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns'])) {
   $routes = json_decode(base64_decode($_ENV['PLATFORM_ROUTES']), TRUE);
@@ -72,7 +64,6 @@ if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns']
   }
   $settings['trusted_host_patterns'] = array_unique($settings['trusted_host_patterns']);
 }
-
 // Import variables prefixed with 'd8settings:' into $settings and 'd8config:'
 // into $config.
 if (isset($_ENV['PLATFORM_VARIABLES'])) {
@@ -101,13 +92,11 @@ if (isset($_ENV['PLATFORM_VARIABLES'])) {
     }
   }
 }
-
 // Set the project-specific entropy value, used for generating one-time
 // keys and such.
 if (isset($_ENV['PLATFORM_PROJECT_ENTROPY']) && empty($settings['hash_salt'])) {
   $settings['hash_salt'] = $_ENV['PLATFORM_PROJECT_ENTROPY'];
 }
-
 // Set the deployment identifier, which is used by some Drupal cache systems.
 if (isset($_ENV['PLATFORM_TREE_ID']) && empty($settings['deployment_identifier'])) {
   $settings['deployment_identifier'] = $_ENV['PLATFORM_TREE_ID'];
