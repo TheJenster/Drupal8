@@ -1,29 +1,14 @@
-# Drupal project template for Platform.sh
+# govCMS 8 project template for Platform.sh
 
-This project provides a starter kit for Drupal 8 projects hosted on [Platform.sh](http://platform.sh). It
-is very closely based on the [Drupal Composer project](https://github.com/drupal-composer/drupal-project).
+This project provides a starter kit for gov 8 projects hosted on [Platform.sh](http://platform.sh). 
 
 ## Starting a new project
 
-To start a new Drupal 8 project on Platform.sh, you have 2 options:
+To start a new govCMS 8 project on Platform.sh:
 
-1. Create a new project through the Platform.sh user interface and select "start
-   new project from a template".  Then select Drupal 8 as the template. That will
-   create a new project using this repository as a starting point.
+1) Clone or download this project.
 
-2. Take an existing project, add the necessary Platform.sh files, and push it
-   to a Platform.sh Git repository. This template includes examples of how to
-   set up a Drupal 8 site.  (See the "differences" section below.)
-
-## Using as a reference
-
-You can also use this repository as a reference for your own Drupal projects, and borrow whatever code is needed.  The most important parts are the [`.platform.app.yaml`](/.platform.app.yaml) file and the [`.platform`](/.platform) directory.
-
-Also see:
-
-* [`settings.php`](/web/sites/default/settings.php) - The customized `settings.php` file works for both Platform.sh and local development, setting only those values that are needed in both.  You can add additional values as documented in `default.settings.php` as desired.
-* [`settings.platformsh.php`](/web/sites/default/settings.platformsh.php) - This file contains Platform.sh-specific code to map environment variables into Drupal configuration.  You can add to it as needed.  See [the documentation](https://docs.platform.sh/frameworks/drupal8.html) for more examples of common snippets to include here.
-* [`scripts/platformsh`](/scripts/platformsh) - This directory contains our update script to keep this repository in sync with the Drupal Composer project.  It may be safely ignored or removed.
+2) Create a new project on Platform.sh (you may like to use the Australian region). When given the option to add your own code, upload your project code via git.
 
 ## Managing a Drupal site built with Composer
 
