@@ -1,6 +1,6 @@
 # govCMS 8 project template for Platform.sh
 
-This project provides a starter kit for gov 8 projects hosted on [Platform.sh](http://platform.sh). 
+This project provides a starter kit for govCMS 8 projects hosted on [Platform.sh](http://platform.sh). 
 
 ## Starting a new project
 
