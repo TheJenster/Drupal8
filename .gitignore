@@ -30,3 +30,4 @@ docroot/sites/*/files
 
 # Ignore configuration files that may contain sensitive information.
 docroot/sites/*/settings.local.php
+docroot/profiles/govcms
